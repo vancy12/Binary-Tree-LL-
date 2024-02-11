@@ -26,17 +26,17 @@ void inorder(node* root){
     if(root == NULL){
         return;
     }
-    preorder(root->left);
+    inorder(root->left);
     printf("%d ", root->data);
-    preorder(root->right);
+    inorder(root->right);
 }
 
 void postorder(node* root){
     if(root == NULL){
         return;
     }
-    preorder(root->left);
-    preorder(root->right);
+    postorder(root->left);
+    postorder(root->right);
     printf("%d ", root->data);
 }
 
@@ -185,3 +185,45 @@ void inorderNonRecursive(node* root){
         }
     }
 }
+
+void postorderNonRecursive(node* root){
+    stack S1, S2;
+    initStack(&S1);
+    initStack(&S2);
+    node* p;
+
+    push(&S1, root);
+    while(!isEmpty(S1)){
+        p = pop(&S1);
+        push(&S2, p);
+        if(p->left)
+            push(&S1, p->left);
+        if(p->right)
+            push(&S1, p->right);
+    }    
+    while(!isEmpty(S2)){
+        printf("%d ", pop(&S2)->data);
+    }
+}
+
+void preorderNonRecursive(node* root) {
+    stack S;
+    // root node --> index is 0
+    node* p = root;
+    initStack(&S);
+    push(&S, p);
+    
+    while(!isEmpty(S)){
+        p = pop(&S);
+        if(p) {
+            printf("%d ", p->data); // Visit current node
+            // Push right child first
+            if(p->right)
+                push(&S, p->right);
+            // Push left child
+            if(p->left)
+                push(&S, p->left);
+        }
+    }
+}
+

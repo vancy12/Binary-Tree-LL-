@@ -6,16 +6,18 @@ int main(){
 
     do {
         printf("\nBinary Search Tree Operations Menu:\n");
-        printf("1. Insert\n");
-        printf("2. Search\n");
-        printf("3. Remove\n");
-        printf("4. Preorder Traversal\n");
-        printf("5. Inorder Traversal\n");
-        printf("6. Postorder Traversal\n");
-        printf("7. Count Nodes\n");
-        printf("8. Level-wise Traversal\n");
-        printf("9. Inorder Traversal Non-recursive\n");
-        printf("10. Exit\n");
+        printf("1.  Insert\n");
+        printf("2.  Search\n");
+        printf("3.  Remove\n");
+        printf("4.  Preorder Traversal\n");
+        printf("5.  Inorder Traversal\n");
+        printf("6.  Postorder Traversal\n");
+        printf("7.  Count Nodes\n");
+        printf("8.  Level-wise Traversal\n");
+        printf("9.  Inorder Traversal Non-recursive\n");
+        printf("10. Postorder Traversal Non-recursive\n");
+        printf("11. Preorder Traversal Non-recursive\n");
+        printf("12. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -67,11 +69,21 @@ int main(){
                 printf("\n");
                 break;
             case 10:
+                printf("Postorder Traversal Non recursive: ");
+                postorderNonRecursive(root);
+                printf("\n");
+                break;
+            case 11:
+                printf("Preorder Traversal Non recursive: ");
+                preorderNonRecursive(root);
+                printf("\n");
+                break;
+            case 12:
                 printf("Exiting...\n");
                 break;
             default:
                 printf("Invalid choice. Please enter a valid option.\n");
         }
-    } while (choice != 10);
+    } while (choice != 12);
     return 0;
 }
