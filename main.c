@@ -17,7 +17,8 @@ int main(){
         printf("9.  Inorder Traversal Non-recursive\n");
         printf("10. Postorder Traversal Non-recursive\n");
         printf("11. Preorder Traversal Non-recursive\n");
-        printf("12. Exit\n");
+        printf("12. Height of tree\n");
+        printf("13. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -79,11 +80,15 @@ int main(){
                 printf("\n");
                 break;
             case 12:
+                printf("Height of tree: ");
+                printf("%d", heightOfTree(root));
+                break;
+            case 13:
                 printf("Exiting...\n");
                 break;
             default:
                 printf("Invalid choice. Please enter a valid option.\n");
         }
-    } while (choice != 12);
+    } while (choice != 13);
     return 0;
 }

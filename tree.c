@@ -227,3 +227,14 @@ void preorderNonRecursive(node* root) {
     }
 }
 
+int heightOfTree(node* root){
+    int leftSubtree, rightSubtree;
+    if(root == NULL)
+        return 0;
+    else   
+        leftSubtree = heightOfTree(root->left);
+        rightSubtree = heightOfTree(root->right);
+    
+        return max(leftSubtree, rightSubtree) + 1;
+}
+

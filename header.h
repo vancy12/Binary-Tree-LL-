@@ -5,6 +5,7 @@
 #include<stdio.h>
 #include<ctype.h>
 #include<string.h>
+#define max(a, b) ((a) > (b) ? (a) : (b))
 
 typedef struct node{
     struct node *left;
