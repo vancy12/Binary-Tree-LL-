@@ -18,7 +18,9 @@ int main(){
         printf("10. Postorder Traversal Non-recursive\n");
         printf("11. Preorder Traversal Non-recursive\n");
         printf("12. Height of tree\n");
-        printf("13. Exit\n");
+        printf("13. Height of a node\n");
+        printf("14. Depth of a node\n");
+        printf("15. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -84,11 +86,30 @@ int main(){
                 printf("%d", heightOfTree(root));
                 break;
             case 13:
+                printf("Enter node whose height you want:");
+                scanf("%d", &data);
+                node* p = root;
+                while(p){
+                    if(data < p->data)
+                        p = p->left;
+                    else if(data > p->data) 
+                        p = p->right;
+                    else
+                        break;
+                }
+                printf("Height of %d is %d\n", data,heightOfTree(p));
+                break;
+            case 14:
+                printf("Enter node whose depth you want:");
+                scanf("%d", &data);
+                depthOfNode(root, data);
+                break;
+            case 15:
                 printf("Exiting...\n");
                 break;
             default:
                 printf("Invalid choice. Please enter a valid option.\n");
         }
-    } while (choice != 13);
+    } while (choice != 15);
     return 0;
 }

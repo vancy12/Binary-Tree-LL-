@@ -238,3 +238,21 @@ int heightOfTree(node* root){
         return max(leftSubtree, rightSubtree) + 1;
 }
 
+void depthOfNode(node* root, int data){
+    node* p = root;
+    int depth = 1;
+    while(p){
+        if(data < p->data){
+            p = p->left;
+            depth++;
+        }
+        else if(data > p->data) {
+            p = p->right;
+            depth++;
+        }
+        else
+            break;
+    }
+    printf("Depth of %d is %d\n", data, depth);
+}
+
