@@ -20,7 +20,8 @@ int main(){
         printf("12. Height of tree\n");
         printf("13. Height of a node\n");
         printf("14. Depth of a node\n");
-        printf("15. Exit\n");
+        printf("15. Find maximum(BT)\n");
+        printf("16. Exit\n");
         printf("Enter your choice: ");
         scanf("%d", &choice);
 
@@ -105,11 +106,14 @@ int main(){
                 depthOfNode(root, data);
                 break;
             case 15:
+                printf("maximum is %d", findMax(root, INT32_MIN));
+                break;
+            case 16:
                 printf("Exiting...\n");
                 break;
             default:
                 printf("Invalid choice. Please enter a valid option.\n");
         }
-    } while (choice != 15);
+    } while (choice != 16);
     return 0;
 }

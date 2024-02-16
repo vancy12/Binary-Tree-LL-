@@ -256,3 +256,15 @@ void depthOfNode(node* root, int data){
     printf("Depth of %d is %d\n", data, depth);
 }
 
+int findMax(node* root, int maximum){
+    if(root == NULL)
+        return 0;
+    
+
+    int left_val, right_val;
+    left_val = findMax(root->left, maximum);
+    right_val = findMax(root->right, maximum);
+    maximum = max(max(left_val, right_val), root->data);
+
+    return maximum;
+}
