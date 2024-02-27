@@ -106,11 +106,11 @@ node* removeNode(node* root, int remove){
     }
 
     if(remove < root->data){
-        removeNode(root->left, remove);
+        root->left = removeNode(root->left, remove);
         return root;
     }
     else if(remove > root->data){
-        removeNode(root->right, remove);
+        root->right = removeNode(root->right, remove);
         return root;
     }
     // if node has 1 child
@@ -260,7 +260,6 @@ int findMax(node* root, int maximum){
     if(root == NULL)
         return 0;
     
-
     int left_val, right_val;
     left_val = findMax(root->left, maximum);
     right_val = findMax(root->right, maximum);
